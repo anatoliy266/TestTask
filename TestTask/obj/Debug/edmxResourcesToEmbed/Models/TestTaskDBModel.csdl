@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestTaskDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="EMPLOYEES">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="POSITION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="INTERVIEW">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PHONE_NUMBER" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="POSITION" Type="Int32" />
+    <Property Name="EMPLOYEE" Type="Int32" />
+    <Property Name="EMPLOYEE_POSITION" Type="Int32" />
+    <Property Name="DATE" Type="DateTime" Precision="7" />
+    <Property Name="TEST_TASK_END_DATE" Type="DateTime" Precision="7" />
+  </EntityType>
+  <EntityType Name="POSITIONS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="POSITION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="TestTaskDBEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" />
+    <EntitySet Name="INTERVIEW" EntityType="Self.INTERVIEW" />
+    <EntitySet Name="POSITIONS" EntityType="Self.POSITIONS" />
+  </EntityContainer>
+</Schema>

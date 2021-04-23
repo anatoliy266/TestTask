@@ -1,0 +1,83 @@
+﻿@model TestTask.Models.Applicants
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+{
+    <div class="thumbnail alert-info">
+        <div class="form-group row">
+            <label for="CreateRecord" class="col-sm-2 col-form-label">Create new record</label>
+            <div class="col-sm-10">
+                <input type="hidden" name="Id" value="-1">
+                <input type="submit" id="CreateRecord" value="Create" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@if (Model.ApplicantsList.Count() == 0)
+{
+    <div class="row">
+        <div class="col-sm-4" />
+        <div class="col-sm-auto">
+            <span class="alert-info">No data</span>
+        </div>
+        <div class="col-sm-4" />
+    </div>
+}
+else
+{
+    foreach (var applicant in Model.ApplicantsList)
+    {
+        using (Html.BeginForm("Edit", "Home", FormMethod.Post, new { @id = applicant.Id }))
+        {
+            <div class="thumbnail edit-click">
+                <div class="caption">
+                    <h3>@Html.Raw(applicant.Name)</h3>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            @Html.Label("Phone")
+                            @Html.Label(applicant.PhoneNumber == null ? "Null" : applicant.PhoneNumber)
+                        </div>
+                        <div class="col-sm-1">
+                            @Html.Label("Position")
+                            @Html.Label(applicant.Position == null ? "Null" : applicant.Position)
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.Label("Date")
+                            @Html.Label(applicant.InterviewDate.ToString("yyyy-MM-dd HH:mm:ss"))
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.Label("Interviewer")
+                            @Html.Label(applicant.Employee == null ? "Null" : applicant.Employee)
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.Label("Interviewer position")
+                            @Html.Label(applicant.EmployeePosition == null ? "Null" : applicant.EmployeePosition)
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.Label("Test task date")
+                            @Html.Label(applicant.TestTaskEndDate.ToString("yyyy-MM-dd HH:mm:ss"))
+                        </div>
+                        <input type="hidden" name="id" value="@applicant.Id">
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
+
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        $("div.edit-click").click(function () {
+            return $(this).closest("form").submit();
+        })
+    })
+</script>
