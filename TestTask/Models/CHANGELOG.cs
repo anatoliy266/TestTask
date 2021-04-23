@@ -12,11 +12,11 @@ namespace TestTask.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EMPLOYEES
+    public partial class CHANGELOG
     {
         public int Id { get; set; }
-        public string FIO { get; set; }
-        public string ACCOUNT { get; set; }
-        public string POSITION { get; set; }
+        public int EMPLOYEE { get; set; }
+        public int RECORDID { get; set; }
+        public System.DateTime CHANGEDATE { get; set; }
     }
 }

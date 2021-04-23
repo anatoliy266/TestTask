@@ -15,7 +15,6 @@ namespace TestTask.Models
     public partial class POSITIONS
     {
         public int Id { get; set; }
-        public string FIO { get; set; }
         public string POSITION { get; set; }
     }
 }

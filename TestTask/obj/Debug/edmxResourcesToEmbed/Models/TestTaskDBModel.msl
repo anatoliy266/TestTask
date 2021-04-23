@@ -1,11 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище TestTaskDBModelContainer" CdmEntityContainer="TestTaskDBEntities2">
+  <EntityContainerMapping StorageEntityContainer="Хранилище TestTaskDBModelContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="CHANGELOG">
+      <EntityTypeMapping TypeName="TestTaskDBModel.CHANGELOG">
+        <MappingFragment StoreEntitySet="CHANGELOG">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EMPLOYEE" ColumnName="EMPLOYEE" />
+          <ScalarProperty Name="RECORDID" ColumnName="RECORDID" />
+          <ScalarProperty Name="CHANGEDATE" ColumnName="CHANGEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="EMPLOYEES">
       <EntityTypeMapping TypeName="TestTaskDBModel.EMPLOYEES">
         <MappingFragment StoreEntitySet="EMPLOYEES">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
           <ScalarProperty Name="POSITION" ColumnName="POSITION" />
         </MappingFragment>
       </EntityTypeMapping>

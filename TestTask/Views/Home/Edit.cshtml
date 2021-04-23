@@ -74,7 +74,6 @@
         </div>
     }
 
-    @Html.HiddenFor(x => x.ConfirmedEmployee, new { @value = HttpContext.Current.Request.LogonUserIdentity })
     @Html.HiddenFor(x => x.Id, new { @value = Model.Id })
 
     <input type="submit" value="Save" />

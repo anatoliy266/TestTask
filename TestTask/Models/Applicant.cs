@@ -63,10 +63,6 @@ namespace TestTask.Models
         [RegularExpression(@"[0-9]{2}.[0-9]{2}.[0-9]{4}\s[0-9]{1,2}:[0-9]{2}:[0-9]{2}", ErrorMessage = "Incorrect date")]
         public DateTime TestTaskEndDateFact { get; set; }
         /// <summary>
-        /// Employee confirmed candidate's test task ended
-        /// </summary>
-        public int ConfirmedEmployee { get; set; }
-        /// <summary>
         /// Identificator for db record
         /// </summary>
         public int Id { get; set; }

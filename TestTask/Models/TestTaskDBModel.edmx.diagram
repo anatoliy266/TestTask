@@ -4,10 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="641dd615f9c443d58e0570203f674d7e" Name="Diagram1">
-        <EntityTypeShape EntityType="TestTaskDBModel.EMPLOYEES" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TestTaskDBModel.INTERVIEW" Width="1.375" PointX="2.875" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TestTaskDBModel.POSITIONS" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="600959aafe094f60b38f595b5b62f100" Name="Diagram1">
+        <EntityTypeShape EntityType="TestTaskDBModel.CHANGELOG" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestTaskDBModel.EMPLOYEES" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestTaskDBModel.INTERVIEW" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestTaskDBModel.POSITIONS" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
