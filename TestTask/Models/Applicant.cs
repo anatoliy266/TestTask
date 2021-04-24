@@ -22,7 +22,8 @@ namespace TestTask.Models
         /// Candidate phone
         /// </summary>
         ///  
-        [RegularExpression(@"[0-9]{11}", ErrorMessage = "Incorrect phone number")]
+        [Required]
+        [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
         /// <summary>
         /// Position candidate interviewed for

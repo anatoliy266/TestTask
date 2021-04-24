@@ -53,17 +53,6 @@ namespace TestTask.Controllers
                     var rec = ctx.INTERVIEW.Where(x => x.Id == id).FirstOrDefault();
                     if (rec == null) return View("Error", new ErrorModel() { ErrorMessage = "something wrong.<br> Please retry" });
                     {
-                        var appl = new Applicant()
-                        {
-                            Id = rec.Id,
-                            Name = rec.FIO,
-                            PhoneNumber = rec.PHONE_NUMBER,
-                            Position = ctx.POSITIONS.Where(x => x.Id == rec.POSITION).ToList().FirstOrDefault()?.POSITION,
-                            Employee = ctx.EMPLOYEES.Where(x => x.Id == rec.EMPLOYEE).ToList().FirstOrDefault()?.FIO,
-                            EmployeePosition = ctx.POSITIONS.Where(x => x.Id == rec.EMPLOYEE_POSITION).ToList().FirstOrDefault()?.POSITION,
-                            InterviewDate = rec.DATE.Value == null ? new DateTime() : rec.DATE.Value,
-                            TestTaskEndDate = rec.TEST_TASK_END_DATE.Value == null ? new DateTime() : rec.TEST_TASK_END_DATE.Value,
-                        };
                         return View("Edit", new Applicant()
                         {
                             Id = rec.Id,
@@ -74,6 +63,7 @@ namespace TestTask.Controllers
                             EmployeePosition = ctx.POSITIONS.Where(x => x.Id == rec.EMPLOYEE_POSITION).ToList().FirstOrDefault()?.POSITION,
                             InterviewDate = rec.DATE.Value == null ? new DateTime() : rec.DATE.Value,
                             TestTaskEndDate = rec.TEST_TASK_END_DATE.Value == null ? new DateTime() : rec.TEST_TASK_END_DATE.Value,
+                            TestTaskEndDateFact = rec.TEST_TASK_END_DATE_FACT.Value == null ? new DateTime() : rec.TEST_TASK_END_DATE_FACT.Value,
                         });
                     }
                 }
