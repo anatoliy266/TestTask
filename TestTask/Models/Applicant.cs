@@ -21,6 +21,8 @@ namespace TestTask.Models
         /// <summary>
         /// Candidate phone
         /// </summary>
+        ///  
+        [RegularExpression(@"[0-9]{11}", ErrorMessage = "Incorrect phone number")]
         public string PhoneNumber { get; set; }
         /// <summary>
         /// Position candidate interviewed for
@@ -45,7 +47,8 @@ namespace TestTask.Models
         /// </summary>
         /// 
         [Required]
-        [RegularExpression(@"[0-9]{2}.[0-9]{2}.[0-9]{4}\s[0-9]{1,2}:[0-9]{2}:[0-9]{2}", ErrorMessage = "Incorrect date")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [Display(Name = "Interview date")]
         public DateTime InterviewDate { get; set; }
         /// <summary>
@@ -53,14 +56,16 @@ namespace TestTask.Models
         /// </summary>
         /// 
         [Required]
-        [RegularExpression(@"[0-9]{2}.[0-9]{2}.[0-9]{4}\s[0-9]{1,2}:[0-9]{2}:[0-9]{2}", ErrorMessage = "Incorrect date")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [Display(Name = "Test task end date")]
         public DateTime TestTaskEndDate { get; set; }
         /// <summary>
         /// Date, when candidate end test task in fact
         /// </summary>
         /// 
-        [RegularExpression(@"[0-9]{2}.[0-9]{2}.[0-9]{4}\s[0-9]{1,2}:[0-9]{2}:[0-9]{2}", ErrorMessage = "Incorrect date")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime TestTaskEndDateFact { get; set; }
         /// <summary>
         /// Identificator for db record

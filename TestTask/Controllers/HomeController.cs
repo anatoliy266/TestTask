@@ -53,6 +53,17 @@ namespace TestTask.Controllers
                     var rec = ctx.INTERVIEW.Where(x => x.Id == id).FirstOrDefault();
                     if (rec == null) return View("Error", new ErrorModel() { ErrorMessage = "something wrong.<br> Please retry" });
                     {
+                        var appl = new Applicant()
+                        {
+                            Id = rec.Id,
+                            Name = rec.FIO,
+                            PhoneNumber = rec.PHONE_NUMBER,
+                            Position = ctx.POSITIONS.Where(x => x.Id == rec.POSITION).ToList().FirstOrDefault()?.POSITION,
+                            Employee = ctx.EMPLOYEES.Where(x => x.Id == rec.EMPLOYEE).ToList().FirstOrDefault()?.FIO,
+                            EmployeePosition = ctx.POSITIONS.Where(x => x.Id == rec.EMPLOYEE_POSITION).ToList().FirstOrDefault()?.POSITION,
+                            InterviewDate = rec.DATE.Value == null ? new DateTime() : rec.DATE.Value,
+                            TestTaskEndDate = rec.TEST_TASK_END_DATE.Value == null ? new DateTime() : rec.TEST_TASK_END_DATE.Value,
+                        };
                         return View("Edit", new Applicant()
                         {
                             Id = rec.Id,
@@ -89,6 +100,7 @@ namespace TestTask.Controllers
                     interview.EMPLOYEE_POSITION = int.Parse(model.EmployeePosition);
                     interview.DATE = model.InterviewDate;
                     interview.TEST_TASK_END_DATE = model.TestTaskEndDate;
+                    interview.TEST_TASK_END_DATE_FACT = model.TestTaskEndDateFact;
                     interview.CONFIRMED_EMPLOYEE = ctx.EMPLOYEES.Where(x => x.ACCOUNT == HttpContext.User.Identity.Name).FirstOrDefault().Id;
 
 
@@ -103,6 +115,7 @@ namespace TestTask.Controllers
                     interview.EMPLOYEE_POSITION = int.Parse(model.EmployeePosition);
                     interview.DATE = model.InterviewDate;
                     interview.TEST_TASK_END_DATE = model.TestTaskEndDate;
+                    interview.TEST_TASK_END_DATE_FACT = model.TestTaskEndDateFact;
                     interview.CONFIRMED_EMPLOYEE = ctx.EMPLOYEES.Where(x => x.ACCOUNT == HttpContext.User.Identity.Name).FirstOrDefault().Id;
                 }
 

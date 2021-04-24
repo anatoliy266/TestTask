@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище TestTaskDBModelContainer" CdmEntityContainer="TestTaskDBEntities">
+    <EntitySetMapping Name="CHANGELOG">
+      <EntityTypeMapping TypeName="TestTaskDBModel.CHANGELOG">
+        <MappingFragment StoreEntitySet="CHANGELOG">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EMPLOYEE" ColumnName="EMPLOYEE" />
+          <ScalarProperty Name="RECORDID" ColumnName="RECORDID" />
+          <ScalarProperty Name="CHANGEDATE" ColumnName="CHANGEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEES">
+      <EntityTypeMapping TypeName="TestTaskDBModel.EMPLOYEES">
+        <MappingFragment StoreEntitySet="EMPLOYEES">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+          <ScalarProperty Name="POSITION" ColumnName="POSITION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INTERVIEW">
+      <EntityTypeMapping TypeName="TestTaskDBModel.INTERVIEW">
+        <MappingFragment StoreEntitySet="INTERVIEW">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />
+          <ScalarProperty Name="POSITION" ColumnName="POSITION" />
+          <ScalarProperty Name="EMPLOYEE" ColumnName="EMPLOYEE" />
+          <ScalarProperty Name="EMPLOYEE_POSITION" ColumnName="EMPLOYEE_POSITION" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="TEST_TASK_END_DATE" ColumnName="TEST_TASK_END_DATE" />
+          <ScalarProperty Name="CONFIRMED_EMPLOYEE" ColumnName="CONFIRMED_EMPLOYEE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POSITIONS">
+      <EntityTypeMapping TypeName="TestTaskDBModel.POSITIONS">
+        <MappingFragment StoreEntitySet="POSITIONS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="POSITION" ColumnName="POSITION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

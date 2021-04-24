@@ -1,0 +1,83 @@
+﻿@model TestTask.Models.Applicant
+@{
+    if (Model.Id == -1)
+    {
+        ViewBag.Title = "Create record";
+    }
+    else
+    {
+        ViewBag.Title = "Edit record " + Model.Id;
+    }
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("SaveRecord", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <div class="form-group row">
+        <label for="CFIO" class="col-sm-2 col-form-label">Candidate FIO</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control-plaintext", @id = "CFIO" })
+            @Html.ValidationMessageFor(x => x.Name)
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="CPhoneNumber" class="col-sm-2 col-form-label">Candidate phone number</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control-plaintext", @id = "CPhoneNumber" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="CPosition" class="col-sm-2 col-form-label">Candidate position</label>
+        <div class="col-sm-10">
+            @Html.DropDownListFor(x => x.Position, ViewBag.Positions as SelectList, new { @class = "form-control", @id = "CPosition" })
+            @Html.ValidationMessageFor(x => x.Position)
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="InterviewDate" class="col-sm-2 col-form-label">Interview date</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.InterviewDate, new { @class = "form-control-plaintext", @id = "InterviewDate" })
+            @Html.ValidationMessageFor(x => x.InterviewDate)
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="EFIO" class="col-sm-2 col-form-label">Interviewer FIO</label>
+        <div class="col-sm-10">
+            @Html.DropDownListFor(x => x.Employee, ViewBag.Employees as SelectList, new { @class = "form-control", @id = "EFIO" })
+            @Html.ValidationMessageFor(x => x.Employee)
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="EPosition" class="col-sm-2 col-form-label">Interviewer Position</label>
+        <div class="col-sm-10">
+            @Html.DropDownListFor(x => x.EmployeePosition, ViewBag.Positions as SelectList, new { @class = "form-control", @id = "EPosition" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="TestTaskEndDate" class="col-sm-2 col-form-label">Test task predicted end date</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.TestTaskEndDate, new { @class = "form-control-plaintext", @id = "TestTaskEndDate" })
+            @Html.ValidationMessageFor(x => x.TestTaskEndDate)
+        </div>
+    </div>
+
+    if (Model.Id != -1)
+    {
+        <div class="form-group row">
+            <label for="TestTaskEndDateFact" class="col-sm-2 col-form-label">Test task fact end date</label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(x => x.TestTaskEndDateFact, new { @class = "form-control-plaintext", @id = "TestTaskEndDateFact" })
+            </div>
+        </div>
+    }
+
+    @Html.HiddenFor(x => x.Id, new { @value = Model.Id })
+
+    <input type="submit" value="Save" />
+}
+
+
+

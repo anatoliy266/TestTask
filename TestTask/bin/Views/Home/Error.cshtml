@@ -1,0 +1,13 @@
+﻿@model TestTask.Models.ErrorModel
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<div class="thumbnail alert-info">
+    <div class="row">
+        <div class="col-sm-6"> </div>
+        <div class="col-sm-6">@Html.Raw(Model.ErrorMessage)</div>
+    </div>
+</div>
+

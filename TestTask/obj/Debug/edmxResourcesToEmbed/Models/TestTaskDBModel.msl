@@ -24,6 +24,7 @@
     <EntitySetMapping Name="INTERVIEW">
       <EntityTypeMapping TypeName="TestTaskDBModel.INTERVIEW">
         <MappingFragment StoreEntitySet="INTERVIEW">
+          <ScalarProperty Name="TEST_TASK_END_DATE_FACT" ColumnName="TEST_TASK_END_DATE_FACT" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FIO" ColumnName="FIO" />
           <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />

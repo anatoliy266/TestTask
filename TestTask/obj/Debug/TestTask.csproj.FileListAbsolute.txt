@@ -88,3 +88,5 @@ C:\Users\admin\Source\repos\TestTask\TestTask\obj\Debug\TestTask.csproj.CoreComp
 C:\Users\admin\Source\repos\TestTask\TestTask\obj\Debug\TestTask.csproj.CopyComplete
 C:\Users\admin\Source\repos\TestTask\TestTask\obj\Debug\TestTask.dll
 C:\Users\admin\Source\repos\TestTask\TestTask\obj\Debug\TestTask.pdb
+C:\Users\admin\Source\repos\TestTask\TestTask\bin\ru\EntityFramework.resources.dll
+C:\Users\admin\Source\repos\TestTask\TestTask\bin\ru\EntityFramework.SqlServer.resources.dll

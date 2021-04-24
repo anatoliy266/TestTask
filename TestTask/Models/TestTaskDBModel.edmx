@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище TestTaskDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище TestTaskDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CHANGELOG">
           <Key>
             <PropertyRef Name="Id" />
@@ -36,6 +36,7 @@
           <Property Name="DATE" Type="datetime2" Precision="7" />
           <Property Name="TEST_TASK_END_DATE" Type="datetime2" Precision="7" />
           <Property Name="CONFIRMED_EMPLOYEE" Type="int" />
+          <Property Name="TEST_TASK_END_DATE_FACT" Type="datetime2" Precision="7" />
         </EntityType>
         <EntityType Name="POSITIONS">
           <Key>
@@ -50,8 +51,7 @@
           <EntitySet Name="INTERVIEW" EntityType="Self.INTERVIEW" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="POSITIONS" EntityType="Self.POSITIONS" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TestTaskDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -86,6 +86,7 @@
           <Property Name="DATE" Type="DateTime" Precision="7" />
           <Property Name="TEST_TASK_END_DATE" Type="DateTime" Precision="7" />
           <Property Name="CONFIRMED_EMPLOYEE" Type="Int32" />
+          <Property Name="TEST_TASK_END_DATE_FACT" Type="DateTime" Precision="7" />
         </EntityType>
         <EntityType Name="POSITIONS">
           <Key>
@@ -129,6 +130,7 @@
           <EntitySetMapping Name="INTERVIEW">
             <EntityTypeMapping TypeName="TestTaskDBModel.INTERVIEW">
               <MappingFragment StoreEntitySet="INTERVIEW">
+                <ScalarProperty Name="TEST_TASK_END_DATE_FACT" ColumnName="TEST_TASK_END_DATE_FACT" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FIO" ColumnName="FIO" />
                 <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />
