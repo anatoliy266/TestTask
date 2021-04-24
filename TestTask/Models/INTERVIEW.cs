@@ -22,5 +22,6 @@ namespace TestTask.Models
         public Nullable<int> EMPLOYEE_POSITION { get; set; }
         public Nullable<System.DateTime> DATE { get; set; }
         public Nullable<System.DateTime> TEST_TASK_END_DATE { get; set; }
+        public Nullable<int> CONFIRMED_EMPLOYEE { get; set; }
     }
 }

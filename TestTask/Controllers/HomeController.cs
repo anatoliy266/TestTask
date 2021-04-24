@@ -14,7 +14,7 @@ namespace TestTask.Controllers
             ///Get records of interviews from database, convert to view model and render view
             var model = new Applicants();
             var appicantslist = new List<Applicant>();
-            using (var ctx = new Entities())
+            using (var ctx = new TestTaskDBEntities())
             {
                 if (ctx.EMPLOYEES.Where(x => x.ACCOUNT == HttpContext.User.Identity.Name).ToList().Count() == 0) return View("Error", new ErrorModel() { ErrorMessage = "Access denied" });
                 var interview = ctx.INTERVIEW.ToList();
@@ -44,7 +44,7 @@ namespace TestTask.Controllers
             ///Get positions and employees from database for dropdowns
             ///if id == -1 - then new record and view rendered with default view model
             ///else get record from database by id and pass it to the view
-            using (var ctx = new Entities())
+            using (var ctx = new TestTaskDBEntities())
             {
                 ViewBag.Employees = new SelectList(ctx.EMPLOYEES.ToList(), "Id", "FIO");
                 ViewBag.Positions = new SelectList(ctx.POSITIONS.ToList(), "Id", "POSITION");
@@ -77,7 +77,7 @@ namespace TestTask.Controllers
             ///if new record - add new object to table entities
             ///else find object in table entity by id and edit in
             ///save changes after
-            using (var ctx = new Entities())
+            using (var ctx = new TestTaskDBEntities())
             {
                 var interview = new INTERVIEW();
                 if (model.Id == -1) 
@@ -89,6 +89,8 @@ namespace TestTask.Controllers
                     interview.EMPLOYEE_POSITION = int.Parse(model.EmployeePosition);
                     interview.DATE = model.InterviewDate;
                     interview.TEST_TASK_END_DATE = model.TestTaskEndDate;
+                    interview.CONFIRMED_EMPLOYEE = ctx.EMPLOYEES.Where(x => x.ACCOUNT == HttpContext.User.Identity.Name).FirstOrDefault().Id;
+
 
                     ctx.INTERVIEW.Add(interview);
                 } else
@@ -101,6 +103,7 @@ namespace TestTask.Controllers
                     interview.EMPLOYEE_POSITION = int.Parse(model.EmployeePosition);
                     interview.DATE = model.InterviewDate;
                     interview.TEST_TASK_END_DATE = model.TestTaskEndDate;
+                    interview.CONFIRMED_EMPLOYEE = ctx.EMPLOYEES.Where(x => x.ACCOUNT == HttpContext.User.Identity.Name).FirstOrDefault().Id;
                 }
 
                 ctx.CHANGELOG.Add(new CHANGELOG() { RECORDID = model.Id, EMPLOYEE = ctx.EMPLOYEES.Where(x => x.ACCOUNT == HttpContext.User.Identity.Name).FirstOrDefault().Id, CHANGEDATE = DateTime.Now });
